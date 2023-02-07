@@ -1,0 +1,81 @@
+.checklistPhase {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 16px;
+  padding: 24px;
+  color: black;
+  background: white;
+  border: 1px solid black;
+  filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 50%));
+}
+
+.phaseHeader {
+  display: flex;
+  grid-gap: 16px;
+  font-size: 20px;
+}
+
+.phaseTitle {
+  flex: 1;
+  align-items: center;
+  margin-bottom: 16px;
+  overflow: auto;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: uppercase;
+
+  &:empty::before {
+    cursor: text;
+    opacity: 0.33;
+    content: attr(data-placeholder);
+  }
+}
+
+.phaseStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  padding: 2px 12px;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: rgb(255 183 3 / 75%);
+  border: 1px solid black;
+  border-radius: 2px;
+  cursor: default;
+  filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 25%));
+
+  &.isComplete {
+    background: rgb(6 214 160 / 75%);
+  }
+
+  &.isLocked {
+    background: rgb(237 28 36 / 65%);
+  }
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  padding: 11px 8px;
+}
+
+.checklistItems {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 8px;
+}
+
+.addItemButton {
+  color: black;
+  background: white;
+  border: 1px solid black;
+
+  &:not(:only-child) {
+    margin-top: 16px;
+  }
+}

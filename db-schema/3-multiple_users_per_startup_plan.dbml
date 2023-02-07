@@ -1,0 +1,52 @@
+Table plans {
+  id uuid
+  title varchar
+  max_phase_position int
+  owner_id uuid
+}
+
+Table phases {
+  id uuid
+  plan_id uuid
+  title varchar
+  position int
+  is_complete boolean
+}
+
+Table items {
+  id uuid
+  plan_id uuid
+  phase_id uuid
+  title varchar
+  position int
+  is_complete boolean
+}
+
+Table users {
+  id uuid
+  first_name varchar
+  last_name varchar
+}
+
+Table users_plans {
+  user_id uuid
+  plan_id uuid
+  permission_type varchar
+}
+
+Table permissions {
+  permission_type varchar
+  permission_title varchar
+}
+
+Ref: "items"."phase_id" > "phases"."id"
+
+Ref: "plans"."id" < "phases"."plan_id"
+
+Ref: "plans"."id" < "items"."plan_id"
+
+Ref: "users_plans"."user_id" > "users"."id"
+
+Ref: "users_plans"."plan_id" > "plans"."id"
+
+Ref: "permissions"."permission_type" < "users_plans"."permission_type"

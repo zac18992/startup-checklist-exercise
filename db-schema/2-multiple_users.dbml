@@ -1,0 +1,37 @@
+Table plans {
+  id uuid
+  title varchar
+  max_phase_position int
+  owner_id uuid
+}
+
+Table phases {
+  id uuid
+  plan_id uuid
+  title varchar
+  position int
+  is_complete boolean
+}
+
+Table items {
+  id uuid
+  plan_id uuid
+  phase_id uuid
+  title varchar
+  position int
+  is_complete boolean
+}
+
+Table users {
+  id uuid
+  first_name varchar
+  last_name varchar
+}
+
+Ref: "items"."phase_id" > "phases"."id"
+
+Ref: "plans"."id" < "phases"."plan_id"
+
+Ref: "plans"."id" < "items"."plan_id"
+
+Ref: "plans"."owner_id" > "users"."id"

@@ -1,0 +1,79 @@
+{
+  "name": "startup-front-end",
+  "version": "0.1.0",
+  "description": "Startup checklist front-end for coding test",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.7.6",
+    "@tanstack/query-sync-storage-persister": "^4.24.4",
+    "@tanstack/react-query": "^4.24.4",
+    "@tanstack/react-query-persist-client": "^4.24.4",
+    "apollo3-cache-persist": "^0.14.1",
+    "classnames": "^2.3.2",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "lodash.debounce": "^4.0.8",
+    "prettier": "^2.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "start": "concurrently \"react-scripts start\" \"yarn generate --watch\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "generate": "graphql-codegen --config codegen.ts",
+    "prebuild": "yarn generate",
+    "lint-style": "npx stylelint '**/*.scss'",
+    "lint-style:fix": "npx stylelint '**/*.scss' --fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "2.16.5",
+    "@graphql-codegen/introspection": "^2.2.3",
+    "@graphql-codegen/typescript-operations": "^3.0.0",
+    "@graphql-codegen/typescript-react-query": "^4.1.0",
+    "@tanstack/react-query-devtools": "^4.24.4",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/lodash.debounce": "^4.0.7",
+    "@types/node": "^16.18.11",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-query": "^1.2.9",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.58.0",
+    "stylelint": "^14.16.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-order": "^6.0.1",
+    "typescript": "^4.9.5"
+  }
+}
